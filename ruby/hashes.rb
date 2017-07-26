@@ -4,7 +4,6 @@
 client_profile = {}
 
 # get user input
-
 puts "Name"
   client_name = gets.chomp.downcase
 
@@ -29,6 +28,7 @@ puts "Decor Theme"
 puts "Budget"
   budget = gets.chomp.to_i
 
+
 # add all of the client's information to the client_profile hash
 client_profile[:client_name] = client_name
 client_profile[:client_age] = client_age
@@ -40,5 +40,21 @@ client_profile[:decor_theme] = decor_theme
 client_profile[:budget] = budget
 
 p client_profile
+
+# now ask the client if they would like to update any information, if not, type 'none' and move on
+# if the client enters a key, ask for a new value for that key and update
+puts "If you see you have made any mistakes, please type in a label that you would like to update and your desired value. Otherwise type 'none'"
+# get the client's answer
+answer = gets.chomp.downcase
+
+if answer == 'none'
+  puts "Thank you for your information! Your profile is now complete and saved!"
+else
+  new_value = gets.chomp
+  client_profile[answer.to_sym] = new_value
+end
+
+p client_profile
+
 
 
