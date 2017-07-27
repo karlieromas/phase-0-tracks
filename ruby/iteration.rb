@@ -36,8 +36,49 @@ cocktails.map! do |x|
 end
 p cocktails
 
-states.each do |state, capital|
-  puts " I love visiting #{capital}, #{state}!"
+states.each do |state, capitol|
+  puts " I love visiting #{capitol}, #{state}!"
 end
 
 
+# RELEASE 2
+
+cocktails.delete_if {|drinks| drinks == "PINA COLADA"}
+p cocktails
+
+states.delete_if {|state, capitol| state == :California}
+p states
+
+cocktails.select {|drink| drink == "COSMO"}
+p cocktails
+
+states.keep_if {|state, capitol| state == :Michigan}
+p states
+
+cocktails.each {|drink|
+if drink.include? ("O")
+puts cocktails
+end
+}
+
+states.each {|state, capitol|
+if state.length <= 8
+puts state
+end
+}
+
+cocktails.each do |drink|
+  if drink.include?("P")
+    break
+  else
+    p cocktails
+  end
+end
+
+states.each {|state, capitol|
+if state.length > capitol.length
+  break
+else
+  p state
+  end
+}
