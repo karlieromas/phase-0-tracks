@@ -38,3 +38,25 @@ end
 
 name_changer("Felicia Torres")
 
+# Release 1 & 2 - User Interface and Data Structures
+
+# create a loop that allows the user to enter a name as many times as they want until they want to 'quit'
+
+results = []
+loop do
+  puts "Enter your real name"
+  real_name = gets.chomp
+  if real_name == 'quit'
+    results.each do |result|
+      puts "#{result[:fake_name]} is actually #{result[:real_name]}"
+    end
+    break
+  end
+  new_name = name_changer(real_name)
+  real_vs_fake_name = {
+    real_name: real_name,
+    fake_name: new_name
+  }
+  results << real_vs_fake_name
+end
+
