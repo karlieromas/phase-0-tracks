@@ -27,6 +27,21 @@ class Puppy
     puts "Initializing new puppy instance..."
   end
 
+end
+
+class Bird
+
+  def initialize
+    puts "Initializing new bird instance..."
+  end
+
+  def fly(number)
+    puts "I flew #{number} miles today!"
+  end
+
+  def chirp
+    puts "tweet tweet"
+  end
 
 end
 
@@ -37,4 +52,8 @@ fido.speak(5)
 fido.roll_over
 fido.dog_years(4)
 fido.eat("kibble")
+
+crow = Bird.new
+crow.fly(3)
+crow.chirp
 
