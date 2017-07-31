@@ -23,6 +23,10 @@ class Puppy
     puts "I ate the #{food}! Gimme more"
   end
 
+  def initialize
+    puts "Initializing new puppy instance..."
+  end
+
 
 end
 
