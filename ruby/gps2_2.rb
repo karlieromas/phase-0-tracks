@@ -1,3 +1,4 @@
+require "colorize"
 # Method to create a list
 # input: string of items separated by spaces (example: "carrots apples cereal pizza")
 # steps:
@@ -21,7 +22,7 @@ end
 # steps: add user input for item to be added to grocery list
 # output: new grocery list hash
 
-def add_item(grocery_list, item_to_add, optional_quantity)
+def add_item(grocery_list, item_to_add, optional_quantity = 1)
   grocery_list[item_to_add] = optional_quantity
   p grocery_list
 end
@@ -54,9 +55,9 @@ end
 # output: list
 
 def print_list(grocery_list)
-  puts "Grocery List:"
+  puts "Grocery List:".red
   grocery_list.each do |key, value|
-    puts "#{key} : #{value}"
+    puts "#{key} : #{value}".blue
   end
 end
 
@@ -64,7 +65,11 @@ end
 
 master_list = create_list("carrots apples cereal pizza")
 
-add_item(master_list,"potatoes", 2)
-remove_item(master_list,"carrots")
-update_quantity(master_list, "pizza", 6)
+add_item(master_list,"lemonade", 2)
+add_item(master_list,"tomatoes", 3)
+add_item(master_list,"onions")
+add_item(master_list,"ice cream", 4)
+
+remove_item(master_list,"lemonade")
+update_quantity(master_list, "ice cream", 1)
 print_list(master_list)
