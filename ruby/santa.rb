@@ -33,13 +33,21 @@ attr_accessor :gender
 
 end
 
+# program to generate 100 santas with randomly selected genders and ethnicities
 santas = []
+example_genders =  ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
 
-santas << santa_1 = Santa.new("female", "white")
-# santa_1.speak
-# santa_1.eat_milk_and_cookies("chocolate chip")
-santas << santa_2 = Santa.new("male", "hispanic")
-santas << santa_3 = Santa.new("bigender", "white")
+100.times do
+random_santa = Santa.new(example_genders.sample, example_ethnicities.sample)
+  puts "I am a random Santa! I am a #{random_santa.ethnicity} #{random_santa.gender}!"
+end
+
+# santas << santa_1 = Santa.new("female", "white")
+# # santa_1.speak
+# # santa_1.eat_milk_and_cookies("chocolate chip")
+# santas << santa_2 = Santa.new("male", "hispanic")
+# santas << santa_3 = Santa.new("bigender", "white")
 
 # shows that the santa's birthday is going up by 1 each year
 santa_3.celebrate_birthday
