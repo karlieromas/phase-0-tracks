@@ -1,5 +1,7 @@
 class Santa
 
+attr_reader :age, :ethnicity
+attr_accessor :gender
 
   def initialize(gender, ethnicity)
     @gender = gender
@@ -15,18 +17,6 @@ class Santa
 
   def eat_milk_and_cookies(cookie)
     puts "That was a good #{cookie} cookie!"
-  end
-
-  def age
-    @age
-  end
-
-  def ethnicity
-    @ethnicity
-  end
-
-  def gender=(gender)
-    @gender = gender
   end
 
   def celebrate_birthday
