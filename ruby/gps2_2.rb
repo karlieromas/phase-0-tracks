@@ -56,8 +56,8 @@ end
 
 def print_list(grocery_list)
   puts "Grocery List:".red
-  grocery_list.each do |key, value|
-    puts "#{key} : #{value}".blue
+  grocery_list.each do |item, quantity|
+    puts "#{item} : #{quantity}".blue
   end
 end
 
@@ -73,3 +73,11 @@ add_item(master_list,"ice cream", 4)
 remove_item(master_list,"lemonade")
 update_quantity(master_list, "ice cream", 1)
 print_list(master_list)
+
+# Release 4
+# I learned that psuedocode is almost the most important part of coding! It makes it so much easier to break each problem down into what you need to do first, next and so on.
+# Both arrays and hashes are very helpful in this challenge. The hash was very helpful in the fact that we could use the food item as keys and the quantities as the values. Made the grocery list in the end look much nicer!
+# In this challenge, our methods return hashes of the updated list.
+# You can pass in a string, another method, a hash or an array, variables (along with the string).
+# You can make a new variable for the result of one method and pass that in as an agument so that that method recognizes it. GENIUS!
+# After creating the first method, the next methods seemed to make sense as we were building on the first.
