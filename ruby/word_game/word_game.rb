@@ -6,7 +6,7 @@
 # once the second user guesses a letter, the current state of the word is printed to the screen so they can see their progress
 # send a congrats message to the user once they figure out the word
 
-class Hangman
+class Word_Game
   attr_reader :letters_guessed, :is_over
 
   def initialize(word)
@@ -30,32 +30,29 @@ class Hangman
     puts result.join
   end
 
-def check_letter(letter)
-  @letters_guessed << letter
-  if @word.include?(letter)
-    puts "Yay! You got a letter!"
-  else
-    puts "Sorry, that letter is not in this word. Try again."
+  def check_letter(letter)
+    @letters_guessed << letter
+    if @word.include?(letter)
+      puts "Yay! You got a letter!"
+    else
+      puts "Sorry, that letter is not in this word. Try again."
+    end
   end
-end
 
-def end_game
-  @is_over = true
-end
-
-def won?
-  @word.split('').all? do |letter|
-    @letters_guessed.include?(letter)
+  def end_game
+    @is_over = true
   end
-end
 
-
-
+  def won?
+    @word.split('').all? do |letter|
+      @letters_guessed.include?(letter)
+    end
+  end
 end
 
 puts "Hello! Welcome to Hangman. Please enter a word:"
 user_word = gets.chomp.downcase
-game = Hangman.new(user_word)
+game = Word_Game.new(user_word)
 game.print_result
 
 until game.is_over
