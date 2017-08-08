@@ -45,3 +45,32 @@ console.log(checkKeyValuePairs(pup, child));
 console.log(checkKeyValuePairs(pup, dog));
 console.log(checkKeyValuePairs(child, dog));
 
+
+//create variable for an empty array
+//create an array of the alphabet so that the words can be randomly generated
+//function needs to take in an integer (the length of the new array wanted) as a parameter
+//function needs to generate random words with different letters in the alphabet array (between 1-10 letters)
+//print out htat new array with the desired number of strings and letters
+
+var funWords = [];
+var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+function randomWords(number) {
+  for (var i = 0; i < number; i++) {
+    var newWord = "";
+    for (var g = 0; g < Math.floor(Math.random() * 10) + 1; g++) {
+      var letter = alphabet[Math.floor(Math.random() * 25) + 1];
+      newWord += letter;
+    }
+    funWords.push(newWord);
+  }
+  return funWords;
+}
+
+console.log(randomWords(7));
+console.log(randomWords(3));
+console.log(randomWords(4));
+console.log(randomWords(2));
+
+
+
