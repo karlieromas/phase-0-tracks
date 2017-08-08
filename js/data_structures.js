@@ -11,6 +11,8 @@ for (var i = 0; i < horse_names.length; i++) {
 
 console.log(horses);
 
+
+
 function Car(model, year, honk) {
   console.log("Our new car:", this);
   this.model = model;
@@ -32,3 +34,14 @@ console.log(Corvette.model);
 console.log(Corvette.year);
 Corvette.honk();
 
+var car_Types = ["Camero", "Bronco", "Mustang", "F150"];
+var car_Colors = ["white", "black", "grey", "silver"]
+var cars = {};
+for (var i = 0; i < car_Types.length; i++) {
+  console.log("Let's Build a New Car!");
+  cars[car_Types[i]] = new Car(car_Types[i], car_Colors[i]);
+  console.log(cars[car_Types[i]].model);
+  console.log(cars[car_Types[i]].year);
+  cars[car_Types[i]].honk();
+  console.log("----");
+}
