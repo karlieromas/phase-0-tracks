@@ -1,0 +1,64 @@
+1. Display the information in one table (either table is fine).
+	Command : SELECT * FROM books;
+	Output: 1|LA Candy|259|true|1
+		2|Lullaby|300|false|1
+		3|Royal Raven|15|true|1
+		4|Scar Tissue|648|false|2
+		5|Buffalo Creek Disaster|295|false|2
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+	Command : UPDATE books SET for_children="true" WHERE title="Buffalo Creek Disaster";
+		  SELECT * FROM books;
+	Output: 1|LA Candy|259|true|1
+		2|Lullaby|300|false|1
+		3|Royal Raven|15|true|1
+		4|Scar Tissue|648|false|2
+		5|Buffalo Creek Disaster|295|true|2
+
+3. Display the information in both tables using one query.
+	Command : SELECT * FROM books, genres WHERE books.genre_id = genres.id;
+	Output: 1|LA Candy|259|true|1|1|fiction
+		2|Lullaby|300|false|1|1|fiction
+		3|Royal Raven|15|true|1|1|fiction
+		4|Scar Tissue|648|false|2|2|non-fiction
+		5|Buffalo Creek Disaster|295|true|2|2|non-fiction
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+	Command : books.title, genres.genre_type FROM books JOIN genres ON books.genre_id = genres.id;
+	Output: LA Candy|fiction
+		Lullaby|fiction
+		Royal Raven|fiction
+		Scar Tissue|non-fiction
+		Buffalo Creek Disaster|non-fiction
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+	Command : DELETE FROM books WHERE title="Lullaby";
+		  SELECT * FROM books;
+	Output: 1|LA Candy|259|true|1
+		3|Royal Raven|15|true|1
+		4|Scar Tissue|648|false|2
+		5|Buffalo Creek Disaster|295|true|2
+
+RESEARCH ON YOUR OWN- RELEASE 3:
+
+1. There are lots of different kinds of joins. What are they? Can you apply different conditions to a join to change what's displayed? Can you bookmark any good diagrams that will help you tell different joins apart in the future?
+	- There are inner joins, left (outer) joins, right (outer) joins, and full (outer) joins. An inner join returns records that have matching values in both tables. A left join is when it returns all records from the left table and matched records from the right table. A right join is when it returns all records from the right table and the matched ones from the left. And finally, a full join is the case in which it returns all records where there is a match in the left or right tables. You can apply different conditions to these joins to change what is displayed to you.
+
+2. Try a few different joins in your database, and record the commands and the output in queries.txt.
+	
+	COMMAND: SELECT total_pages FROM books LEFT JOIN genres ON books.total_pages = genres.genre_type;
+
+	OUTPUT: 259
+		15
+		648
+		295
+
+	COMMAND: SELECT * FROM genres, books WHERE genres.id = books.genre_id;
+
+	OUTPUT: 1|fiction|1|LA Candy|259|true|1
+		1|fiction|3|Royal Raven|15|true|1
+		2|non-fiction|4|Scar Tissue|648|false|2
+		2|non-fiction|5|Buffalo Creek Disaster|295|true|2
+
+	COMMAND: SELECT * FROM books, genres WHERE books.for_children = genres.id;
+	OUTPUT: nothing 
