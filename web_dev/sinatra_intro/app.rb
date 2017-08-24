@@ -28,6 +28,15 @@ get '/contact/:address' do
   "Karlie lives at #{address}"
 end
 
+get '/great_job/' do
+  name = params[:name]
+   if name
+   "Good job, #{params[:name]}!"
+   else
+   "Good job!"
+   end
+end
+
 # write a GET route that retrieves
 # all student data
 get '/students' do
