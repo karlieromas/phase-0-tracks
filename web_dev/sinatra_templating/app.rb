@@ -12,9 +12,12 @@ get '/' do
   @students = db.execute("SELECT * FROM students")
   erb :home
 end
-
 get '/students/new' do
   erb :new_student
+end
+
+get '/students/campus' do
+  erb :home
 end
 
 # create new students via
