@@ -12,6 +12,15 @@ get '/' do
   "#{params[:name]} is #{params[:age]} years old."
 end
 
+get '/great_job/' do
+  name = params[:name]
+   if name
+   "Good job, #{params[:name]}!"
+   else
+   "Good job!"
+   end
+end
+
 # write a GET route with
 # route parameters
 get '/about/:person' do
@@ -28,14 +37,13 @@ get '/contact/:address' do
   "Karlie lives at #{address}"
 end
 
-get '/great_job/' do
-  name = params[:name]
-   if name
-   "Good job, #{params[:name]}!"
-   else
-   "Good job!"
-   end
+
+get '/:number_1/add/:number_2' do
+ result = params[:number_1].to_i + params[:number_2].to_i
+ "#{params[:number_1]} + #{params[:number_2]} = #{result}"
 end
+
+
 
 # write a GET route that retrieves
 # all student data
@@ -58,3 +66,19 @@ get '/students/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
   student.to_s
 end
+
+# get '/students/:campus' do
+#   student = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+#   students.to_s
+# end
+
+# get '/students_named/:name' do
+#   response = ''
+#   students = db.execute('SELECT * FROM students WHERE name=?', params[:name])
+#   students.each do |student|
+#     response << "Do you know #{student['name']}?"
+#     response << "The age of the student is #{student['age']} years old and "
+#     response << "lives #{student['campus']} campus?"
+#   end
+#   response
+# end
