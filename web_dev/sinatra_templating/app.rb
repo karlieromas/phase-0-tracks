@@ -1,4 +1,5 @@
 # require gems
+# require gems
 require 'sinatra'
 require 'sqlite3'
 
@@ -17,6 +18,7 @@ get '/students/new' do
 end
 
 get '/students/campus' do
+  @students = db.execute("SELECT * FROM students")
   erb :home
 end
 
